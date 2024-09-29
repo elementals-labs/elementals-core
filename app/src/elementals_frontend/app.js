@@ -3,7 +3,7 @@ const elementals = {
   Torchy: {
     name: "Torchy",
     health: 70,
-    image: "img/torchy.png",
+    image: "/assets/torchy-9afb3bca.png",
     attacks: [
       { name: "Body Slam", damage: 12, missRate: 1 / 18 },
       { name: "Fire Breath", damage: 20, missRate: 1 / 8 },
@@ -14,7 +14,7 @@ const elementals = {
   Aqualord: {
     name: "Aqualord",
     health: 70,
-    image: "img/aqualord.png",
+    image: "/assets/aqualord-e0fa1aae.png",
     attacks: [
       { name: "Water Splash", damage: 12, missRate: 1 / 18 },
       { name: "Aqua Jet", damage: 20, missRate: 1 / 8 },
@@ -25,7 +25,7 @@ const elementals = {
   Sparky: {
     name: "Sparky",
     health: 70,
-    image: "img/sparky.png",
+    image: "/assets/sparky-7acfd881.png",
     attacks: [
       { name: "Thunder Shock", damage: 12, missRate: 1 / 18 },
       { name: "Electro Ball", damage: 20, missRate: 1 / 8 },
@@ -149,9 +149,13 @@ function playerOneAttack(attackIndex) {
   playerImage.classList.add("player-attack-animation");
 
   // Remove animation class after animation ends
-  playerImage.addEventListener("animationend", () => {
-    playerImage.classList.remove("player-attack-animation");
-  }, { once: true });
+  playerImage.addEventListener(
+    "animationend",
+    () => {
+      playerImage.classList.remove("player-attack-animation");
+    },
+    { once: true }
+  );
 
   setTimeout(() => {
     if (randomNumber >= missChance) {
@@ -165,16 +169,28 @@ function playerOneAttack(attackIndex) {
           playerTwoHealth,
           opponentElemental.health
         );
-        healthColor(playerTwoHealth, opponentElemental.health, playerTwoHealthBar);
-        checkWinner(playerElemental.name, playerTwoHealthBar, playerTwoHealthCount);
+        healthColor(
+          playerTwoHealth,
+          opponentElemental.health,
+          playerTwoHealthBar
+        );
+        checkWinner(
+          playerElemental.name,
+          playerTwoHealthBar,
+          playerTwoHealthCount
+        );
       } else {
         // Trigger opponent hit animation
         const opponentImage = document.querySelector("#player-two-image");
         opponentImage.classList.add("hit-animation");
 
-        opponentImage.addEventListener("animationend", () => {
-          opponentImage.classList.remove("hit-animation");
-        }, { once: true });
+        opponentImage.addEventListener(
+          "animationend",
+          () => {
+            opponentImage.classList.remove("hit-animation");
+          },
+          { once: true }
+        );
 
         updateHealthBar(
           playerTwoHealthBar,
@@ -182,7 +198,11 @@ function playerOneAttack(attackIndex) {
           playerTwoHealth,
           opponentElemental.health
         );
-        healthColor(playerTwoHealth, opponentElemental.health, playerTwoHealthBar);
+        healthColor(
+          playerTwoHealth,
+          opponentElemental.health,
+          playerTwoHealthBar
+        );
 
         gameStateText.innerText = `${playerElemental.name} used ${attack.name}! It dealt ${attack.damage} damage!`;
         attackContainer.style.display = "none";
@@ -198,9 +218,13 @@ function playerOneAttack(attackIndex) {
       const opponentImage = document.querySelector("#player-two-image");
       opponentImage.classList.add("miss-animation");
 
-      opponentImage.addEventListener("animationend", () => {
-        opponentImage.classList.remove("miss-animation");
-      }, { once: true });
+      opponentImage.addEventListener(
+        "animationend",
+        () => {
+          opponentImage.classList.remove("miss-animation");
+        },
+        { once: true }
+      );
 
       gameStateText.innerText = `${playerElemental.name} used ${attack.name}... But it missed!`;
       attackContainer.style.display = "none";
@@ -213,7 +237,6 @@ function playerOneAttack(attackIndex) {
   }, 500); // Delay to match the attack animation
 }
 
-
 // Player Two Attack Function
 function playerTwoAttack() {
   const attacks = opponentElemental.attacks;
@@ -225,9 +248,13 @@ function playerTwoAttack() {
   const opponentImage = document.querySelector("#player-two-image");
   opponentImage.classList.add("opponent-attack-animation");
 
-  opponentImage.addEventListener("animationend", () => {
-    opponentImage.classList.remove("opponent-attack-animation");
-  }, { once: true });
+  opponentImage.addEventListener(
+    "animationend",
+    () => {
+      opponentImage.classList.remove("opponent-attack-animation");
+    },
+    { once: true }
+  );
 
   setTimeout(() => {
     if (randomNumber >= missChance) {
@@ -241,16 +268,28 @@ function playerTwoAttack() {
           playerOneHealth,
           playerElemental.health
         );
-        healthColor(playerOneHealth, playerElemental.health, playerOneHealthBar);
-        checkWinner(opponentElemental.name, playerOneHealthBar, playerOneHealthCount);
+        healthColor(
+          playerOneHealth,
+          playerElemental.health,
+          playerOneHealthBar
+        );
+        checkWinner(
+          opponentElemental.name,
+          playerOneHealthBar,
+          playerOneHealthCount
+        );
       } else {
         // Trigger player hit animation
         const playerImage = document.querySelector("#player-one-image");
         playerImage.classList.add("hit-animation");
 
-        playerImage.addEventListener("animationend", () => {
-          playerImage.classList.remove("hit-animation");
-        }, { once: true });
+        playerImage.addEventListener(
+          "animationend",
+          () => {
+            playerImage.classList.remove("hit-animation");
+          },
+          { once: true }
+        );
 
         updateHealthBar(
           playerOneHealthBar,
@@ -258,7 +297,11 @@ function playerTwoAttack() {
           playerOneHealth,
           playerElemental.health
         );
-        healthColor(playerOneHealth, playerElemental.health, playerOneHealthBar);
+        healthColor(
+          playerOneHealth,
+          playerElemental.health,
+          playerOneHealthBar
+        );
 
         gameStateText.innerText = `${opponentElemental.name} used ${randomAttack.name}! It dealt ${randomAttack.damage} damage!`;
 
@@ -273,9 +316,13 @@ function playerTwoAttack() {
       const playerImage = document.querySelector("#player-one-image");
       playerImage.classList.add("miss-animation");
 
-      playerImage.addEventListener("animationend", () => {
-        playerImage.classList.remove("miss-animation");
-      }, { once: true });
+      playerImage.addEventListener(
+        "animationend",
+        () => {
+          playerImage.classList.remove("miss-animation");
+        },
+        { once: true }
+      );
 
       gameStateText.innerText = `${opponentElemental.name} used ${randomAttack.name}... But it missed!`;
 
@@ -286,7 +333,6 @@ function playerTwoAttack() {
     }
   }, 500); // Delay to match the attack animation
 }
-
 
 // Restart Game Function
 function restartGame() {

@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "elementals_backend": {
+      "main": "src/elementals_backend/main.mo",
+      "type": "motoko"
+    },
+    "elementals_frontend": {
+      "dependencies": [
+        "elementals_backend"
+      ],
+      "source": [
+        "src/elementals_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "elementals_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
