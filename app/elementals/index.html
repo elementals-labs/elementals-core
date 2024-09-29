@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/img/favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elementals | Gotta Be The Best</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Selection Screen -->
+  <div class="selection-screen">
+    <h1>Choose Your Elemental</h1>
+    <div class="elemental-options">
+      <div class="elemental" data-elemental="Torchy">
+        <img src="img/torchy.png" alt="Torchy" />
+        <h2>Torchy</h2>
+      </div>
+      <div class="elemental" data-elemental="Aqualord">
+        <img src="img/aqualord.png" alt="Aqualord" />
+        <h2>Aqualord</h2>
+      </div>
+      <div class="elemental" data-elemental="Sparky">
+        <img src="img/sparky.png" alt="Sparky" />
+        <h2>Sparky</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Battle Screen -->
+  <div class="canvas" style="display: none;">
+    <!-- Opponent Container -->
+    <div class="player-two-container">
+      <div id="player-two">
+        <h2>
+          <span class="p2-name">Opponent Name</span>
+          <span class="health-count-p2">70 / 70 HP</span>
+        </h2>
+        <div class="hp-container-mew">
+          <h2>HP</h2>
+          <div class="bar p2-health"></div>
+        </div>
+      </div>
+      <img id="player-two-image" src="" alt="Opponent Elemental" />
+    </div>
+
+    <!-- Player Container -->
+    <div id="player-one-container">
+      <div id="player-one">
+        <h2>
+          <span class="p1-name">Player Name</span>
+          <span class="health-count-p1">70 / 70 HP</span>
+        </h2>
+        <div class="hp-container">
+          <h2>HP</h2>
+          <div class="bar p1-health"></div>
+        </div>
+      </div>
+      <img src="" id="player-one-image" alt="Player Elemental" />
+    </div>
+
+    <!-- Attack and Game State Container -->
+    <div class="player-one-container">
+      <h1 class="game-state"></h1>
+      <div class="attack-container">
+        <button class="attack btn"></button>
+        <button class="attack btn"></button>
+        <button class="attack btn"></button>
+        <button class="attack btn"></button>
+      </div>
+      <button class="restart-game">Restart Game</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

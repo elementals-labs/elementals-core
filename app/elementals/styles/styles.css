@@ -1,0 +1,311 @@
+/* Global Styles */
+body {
+  font-family: "VT323", monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/* Selection Screen Styles */
+.selection-screen {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.selection-screen h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.elemental-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.elemental {
+  border: 2px solid black;
+  padding: 10px;
+  cursor: pointer;
+  width: 150px;
+  transition: transform 0.2s;
+  background-color: #fff;
+}
+
+.elemental:hover {
+  transform: scale(1.05);
+}
+
+.elemental img {
+  width: 100%;
+  height: auto;
+}
+
+.elemental h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+/* Battle Screen Styles */
+.canvas {
+  width: 600px;
+  height: 600px;
+  box-sizing: border-box;
+  border: 5px solid black;
+  margin: 0 auto;
+  position: relative;
+  background-color: #fff;
+}
+
+/* Opponent (Player Two) Styles */
+.player-two-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#player-two {
+  width: 100%;
+}
+
+#player-two .p2-name {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+#player-two .health-count-p2 {
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+#player-two .hp-container-mew {
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+#player-two .hp-container-mew h2 {
+  margin: 0;
+  margin-right: 10px;
+  min-width: 30px; /* Ensure the "HP" label doesn't shrink */
+}
+
+#player-two .hp-container-mew .bar {
+  width: 100%; /* Set initial width to 100% */
+  height: 15px;
+  background-color: green;
+  border-radius: 40px;
+  transition: width 0.5s ease;
+
+  /* Removed flex-grow to allow width property to take effect */
+}
+
+#player-two-image {
+  width: 150px;
+  height: auto;
+  transform: scaleX(-1);
+  margin-top: 10px;
+}
+
+/* Player (Player One) Styles */
+#player-one-container {
+  position: absolute;
+  bottom: 200px;
+  left: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#player-one {
+  width: 100%;
+}
+
+#player-one .p1-name {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+#player-one .health-count-p1 {
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+#player-one .hp-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+#player-one .hp-container h2 {
+  margin: 0;
+  margin-right: 10px;
+  min-width: 30px; /* Ensure the "HP" label doesn't shrink */
+}
+
+#player-one .hp-container .bar {
+  width: 100%; /* Set initial width to 100% */
+  height: 15px;
+  background-color: green;
+  border-radius: 40px;
+  transition: width 0.5s ease;
+
+  /* Removed flex-grow to allow width property to take effect */
+}
+
+#player-one-image {
+  width: 150px;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Player One Container (Attacks and Game State) */
+.player-one-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  border-top: 5px solid black;
+  background-color: #e0e0e0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.attack-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.attack-container .attack {
+  outline: none;
+  border: 2px solid black;
+  background-color: #fff;
+  font-family: "VT323", monospace;
+  font-size: 1.8rem;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.attack-container .attack:hover {
+  background-color: #f0f0f0;
+}
+
+.restart-game {
+  margin-top: 10px;
+  color: white;
+  font-size: 1.5rem;
+  font-family: "VT323", monospace;
+  padding: 8px 12px;
+  background-color: #3d3dff;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  display: none;
+}
+
+.restart-game:hover {
+  cursor: pointer;
+  background-color: #5252ff;
+}
+
+.game-state {
+  display: none;
+  margin-top: 10px;
+  font-size: 1.8rem;
+}
+
+/* Attack Animation for Player Elemental */
+@keyframes player-attack {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50px); /* Move forward */
+  }
+  100% {
+    transform: translateX(0); /* Return to original position */
+  }
+}
+
+.player-attack-animation {
+  animation: player-attack 0.5s ease-in-out;
+}
+
+/* Attack Animation for Opponent Elemental */
+@keyframes opponent-attack {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50px); /* Move forward */
+  }
+  100% {
+    transform: translateX(0); /* Return to original position */
+  }
+}
+
+.opponent-attack-animation {
+  animation: opponent-attack 0.5s ease-in-out;
+}
+
+/* Hit Effect */
+@keyframes hit-effect {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hit-animation {
+  animation: hit-effect 0.5s ease-in-out;
+}
+
+/* Miss Effect */
+@keyframes miss-effect {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.miss-animation {
+  animation: miss-effect 0.5s ease-in-out;
+}
