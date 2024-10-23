@@ -5,8 +5,6 @@
 
 ![Architecture diagram](./assets/arch.svg)
 
-## Canister ID
+## Try the ALPHA
 
-3r6o3-siaaa-aaaal-amhna-cai
-
-https://3r6o3-siaaa-aaaal-amhna-cai.icp0.io/ 
+(https://alpha.elementalslab.com/)
